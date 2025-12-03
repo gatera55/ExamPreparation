@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build stage is running'
+                // Example: build Docker image
+                sh 'docker-compose build'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploy stage is running'
+                // Example: run containers
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+}
